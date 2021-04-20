@@ -10,7 +10,7 @@
        - name: Precheck 
          tasks: 'Executing shell script'
          shell:  
-         - command: "{{ shell_commands_to_run }}"
+         command: "{{ shell_commands_to_run }}"
            shell_commands_to_run:
                                  - uptime
                                  - lsof -i -n -P
@@ -26,7 +26,7 @@
             
 
                 
-            - name: Print debug statement
+         - name: Print debug statement
               debug: "stdout_lines"
                  
           

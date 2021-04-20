@@ -1,0 +1,34 @@
+---
+hosts: all
+tasks: 
+var:
+     - Praveen: "/td/logs/patch"
+       date: "{{ lookup('pipe', 'date +%Y%m%d-%H:%M:%S') }}"
+       log_file:  "{{Praveen}}/{{ansible_hostname}}-{{ date}}.log"
+
+       - name: Precheck 
+         tasks: 'Executing shell script'
+         shell:  
+         - command: "{{ shell_commands_to_run }}"
+           shell_commands_to_run:
+                                 - uptime
+                                 - lsof -i -n -P
+                                 - free
+                                 - uname -a
+                                 - ifconfig
+                                 - rpm -qa | sort
+                                 - yum repolist -v
+                                 - ps -ef
+                                 - chkconfig --list
+                                 - systemctl list-unit-files
+
+            
+
+                
+            - name: Print debug statement
+              debug: "stdout_lines"
+                 
+          
+
+             
+

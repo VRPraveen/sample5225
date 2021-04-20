@@ -20,7 +20,7 @@ var:
                                  - yum repolist -v
                                  - ps -ef
                                  - chkconfig --list
-                                 - systemctl list-unit-files
+                                 
 
             
 

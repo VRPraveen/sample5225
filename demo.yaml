@@ -1,8 +1,8 @@
 ---
 - name: 'Execute shell command'
-   hosts: all
-   tasks: 
-    var: 
+  hosts: all
+  tasks: 
+  var: 
      - Praveen: "/td/logs/patch"
        date: "{{ lookup('pipe', 'date +%Y%m%d-%H:%M:%S') }}"
        log_file:  "{{Praveen}}/{{ansible_hostname}}-{{ date}}.log"

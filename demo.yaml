@@ -32,7 +32,7 @@
   register: shell_output
 
 - name: Clean the yum cache
-   yum:
+  yum:
      name: '*'
      state: absent
   

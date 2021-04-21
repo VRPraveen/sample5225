@@ -13,9 +13,9 @@
  # command: subscription-manager facts --update
 
 #Yum Clean All
-- name: Print debug statement
-  debug:
-    msg: "Disk space before clean up"
+#- name: Print debug statement
+ # debug:
+  #  msg: "Disk space before clean up"
 
 - name: "Disk space of /var/cache/yum - Before clean up"
   command: df -hP /var/cache/yum

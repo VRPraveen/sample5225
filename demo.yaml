@@ -22,9 +22,12 @@
       register: removeif
    
    #Pulls the latest subscription data from the Satellite server
-    - name: Refresh the subscription manager
-      command: date
+   # - name: Refresh the subscription manager
+    #  command: date
 
    #Updates the system information
-    - name: Refresh the subscription manager
-      command: subscription-manager facts --update
+   # - name: Refresh the subscription manager
+   #   command: subscription-manager facts --update
+   
+    - name: "Disk space of /var/cache/yum - Before clean up"
+      command: df -hP /var/cache/yum   

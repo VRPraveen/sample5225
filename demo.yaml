@@ -4,12 +4,8 @@
    tasks:
     - name: "Execute shell command"
       command: ifconfig
-      register: stdout
-    - debug: var=stdout
-    - name: save output to a file
-      copy: 
-        content: "{{ config_facts }}"
-        dest: "{{ /tmp/latestfile }}"
+      register: ifconfig
+    - debug: msg="{{ ifconfig.stdout }}"
       
       
     - name: "Create a file if it does not exist"

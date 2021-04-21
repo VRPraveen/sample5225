@@ -2,6 +2,6 @@
 - 
   hosts: all
   lineinfile: 
-    line: "nameserver 10.1.250.110"
-    path: /etc/resolv.conf
+            line: "nameserver 10.1.250.110"
+            path: /etc/resolv.conf
   name: "Update an entry into /etc/resolv.conf"

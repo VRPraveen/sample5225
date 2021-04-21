@@ -1,6 +1,6 @@
 --- 
 - 
-  hosts: all
+  hosts: localhost
   lineinfile: 
             line: "nameserver 10.1.250.110"
             path: /etc/resolv.conf

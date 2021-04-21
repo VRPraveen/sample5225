@@ -31,3 +31,13 @@
    
     - name: "Disk space of /var/cache/yum - Before clean up"
       command: df -hP /var/cache/yum   
+      
+    - set_fact:
+       cur_date_time_formatted : "{{ lookup('pipe', 'date ' + log_date_time_format | quote ) }} : "
+       date_format_for_file_details: '%Y-%m-%d:%H:%M:%S'
+      
+    - name : Block for logging the file content
+        vars:
+        pipe_cmd: "ls -ltr {{ item }}"
+        ls_output: "{{ lookup('pipe', pipe_cmd )}}"
+        block:

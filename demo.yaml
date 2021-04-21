@@ -1,6 +1,8 @@
 --- 
-- "name:'Execute shell command' hosts:all var:-Praveen:\"/td/logs/patch\" date:\"{{ lookup('pipe', 'date +%Y%m%d-%H:%M:%S') }}\" log_file:\"{{Praveen}}/{{ansible_hostname}}-{{ date}}.log\""
-- "name:'Precheck' tasks:'Executing shell script' command:\"{{ shell_commands_to_run }}\" shell_commands_to_run:-uptime"
 - 
-  debug: stdout_lines
-  name: "Print debug statement"
+ name: 'Update an entry into /etc/resolv.conf'
+ hosts: all
+ tasks: 
+       line in file:
+                   path: /etc/resolv.conf
+                   line: nameserver 10.1.250.10

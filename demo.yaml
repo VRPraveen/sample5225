@@ -3,9 +3,10 @@
    hosts: all
    tasks:
     - name: "Execute shell command"
-      command: ifconfig
-      register: ifconfig
-    - debug: msg="{{ ifconfig.stdout }}"
+      command: echo "ls"
+      register: ls
+    - debug: msg="{{ ls.stdout }}"
+    - debug: msg="{{ ls.stderr }}"
       
       
     - name: "Create a file if it does not exist"

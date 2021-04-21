@@ -4,8 +4,8 @@
    tasks:
     - name: "Execute shell command"
       command: ifconfig
-      register: ifconfig_facts
-    - debug: var=config_facts
+      register: stdout
+    - debug: var=stdout
     - name: save output to a file
       copy: 
         content: "{{ config_facts }}"

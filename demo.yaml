@@ -1,6 +1,8 @@
---- 
-- 
-  hosts:localhost
-  lineinfile:line:"nameserver 10.1.250.110"
-            path:/etc/resolv.conf
-  name:"Update an entry into /etc/resolv.conf"
+---
+- hosts: all
+  become: true
+  gather_facts: true 
+  lineinfile:
+            line: "nameserver 10.1.250.110"
+            path: /etc/resolv.conf
+  name: "Update an entry into /etc/resolv.conf"

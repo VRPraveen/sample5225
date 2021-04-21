@@ -3,4 +3,4 @@
   - name: System Uptime
     command: uptime
     register: uptime
-  - debug: var=uptime
+  - debug: msg="{{ uptime.stdout }}"

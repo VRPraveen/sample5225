@@ -1,38 +1,6 @@
----
- - name: "Precheck"
-   hosts: all
-   tasks:
-    - name: "Execute shell command"
-      ansible.builtin.command: ls -ltr
-      register: myls
-    - debug: msg="{{ myls.stdout }}"
-    - debug: msg="{{ myls.stderr }}"
-      
-      
-    - name: "Create a file if it does not exist"
-      command: "touch /tmp/latestfile"
-      args:
-         creates: "/tmp/latestfile"
-      register: createif
-
-    - name: "Display the file to make sure its created"
-      command: "ls -lrt /tmp/latestfile"
-      register: displayif
-      when: createif is changed
-
-    - debug: var=displayif.stdout
-
-    - name: "Remove the file if it exist"
-      command: "rm -rf /tmp/latestfile"
-      args:
-         removes: "/tmp/latestfile"
-      register: removeif
-   
-   #Pulls the latest subscription data from the Satellite server
-   # - name: Refresh the subscription manager
-    #  command: date
-
-   #Updates the system information
-   # - name: Refresh the subscription manager
-   #   command: subscription-manager facts --update
-   
+- hosts: all
+  tasks:
+  - name: System Uptime
+    command: uptime
+    register: uptime
+  - debug: var=uptime

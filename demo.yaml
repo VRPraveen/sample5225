@@ -2,6 +2,9 @@
 # Task File for patch-cloud-linux-os prereqs
 
 #Pulls the latest subscription data from the Satellite server
+- name: prechecks
+  hosts: all 
+  tasks:
 - name: Refresh the subscription manager
   command: subscription-manager refresh
 

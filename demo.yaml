@@ -6,10 +6,10 @@
        creates: "/tmp/latestfile"
      register: createif
   
-  - name: System Uptime
-    shell: |
-      uptime > /tmp/latestfile 2>&1
-      cat /tmp/latestfile
-      ifconfig
-    register: uptime
+   - name: System Uptime
+     shell: |
+       uptime > /tmp/latestfile 2>&1
+       cat /tmp/latestfile
+       ifconfig
+     register: uptime
 

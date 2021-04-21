@@ -1,6 +1,15 @@
 - hosts: all
   tasks:
+   - name: "Create a file if it does not exist"
+     command: "touch /tmp/latestfile"
+     args:
+       creates: "/tmp/latestfile"
+     register: createif
+  
   - name: System Uptime
-    command: uptime
+    shell: |
+      uptime > /tmp/latestfile 2>&1
+      cat /tmp/latestfile
+      ifconfig
     register: uptime
-  - debug: msg="{{ uptime.stdout }}"
+

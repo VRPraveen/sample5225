@@ -4,9 +4,9 @@
   become: true
   gather_facts: true 
   tasks:
-   - name: "Execute shell scripts"
-     shell: 
-     command_to_run:
+   - name: "Execute shell commands"
+        shell: 
+        command_to_run:
                     - Ifconfig
                     - uname -a
    - lineinfile:

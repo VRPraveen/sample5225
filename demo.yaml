@@ -5,8 +5,8 @@
   gather_facts: true 
   tasks:
    - name: "Execute shell commands"
-        shell: 
-        command_to_run:
+       - shell: 
+         command_to_run:
                     - Ifconfig
                     - uname -a
    - lineinfile:

@@ -31,12 +31,12 @@
     rm -rf /var/cache/yum/* 1>/dev/null 2>&1
   register: shell_output
 
- - name: Clean the yum cache
+- name: Clean the yum cache
    yum:
      name: '*'
      state: absent
   
- - name: Remove the files in /var/yum/cache
+- name: Remove the files in /var/yum/cache
    command: rm -rf /var/cache/yum/* 1>/dev/null 2>&1
    register: result
   

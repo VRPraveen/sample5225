@@ -11,4 +11,5 @@
        uptime > /tmp/latestfile 2>&1
        cat /tmp/latestfile
      register: uptime
+   - debug: msg="{{ uptime.stdout }}"
 

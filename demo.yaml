@@ -2,6 +2,16 @@
  - name: "Precheck"
    hosts: all
    tasks:
+    - name: "Execute shell command"
+      command: Ifconfig
+      register: Ifconfig_facts
+    - debug: var=config_facts
+    - name: save output to a file
+      copy: 
+        content: "{{ config_facts }}"
+        dest: "{{ /tmp/latestfile }}"
+      
+      
     - name: "Create a file if it does not exist"
       command: "touch /tmp/latestfile"
       args:
@@ -29,16 +39,3 @@
    # - name: Refresh the subscription manager
    #   command: subscription-manager facts --update
    
-    - name: "Disk space of /var/cache/yum - Before clean up"
-      command: df -hP /var/cache/yum   
-      
-    - set_fact:
-       cur_date_time_formatted : "{{ lookup('pipe', 'date ' + log_date_time_format | quote ) }} : "
-       date_format_for_file_details: '%Y-%m-%d:%H:%M:%S'
-      
-    - name: Get the stat information of file {{ item }}
-      stat:
-          path: "{{ item }}"
-      register: stat_output
-    - set_fact:
-        file_stat_output: "{{ stat_output.stat }}"

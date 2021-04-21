@@ -10,6 +10,5 @@
      shell: |
        uptime > /tmp/latestfile 2>&1
        cat /tmp/latestfile
-       ifconfig
      register: uptime
 

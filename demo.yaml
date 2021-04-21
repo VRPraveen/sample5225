@@ -4,13 +4,13 @@
 #Pulls the latest subscription data from the Satellite server
 - name: prechecks
   hosts: all
-  
-- name: Refresh the subscription manager
-  command: subscription-manager refresh
+
+#- name: Refresh the subscription manager
+ # command: subscription-manager refresh
 
 #Updates the system information
-- name: Refresh the subscription manager
-  command: subscription-manager facts --update
+#- name: Refresh the subscription manager
+ # command: subscription-manager facts --update
 
 #Yum Clean All
 - name: Print debug statement

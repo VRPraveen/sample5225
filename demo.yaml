@@ -3,8 +3,8 @@
    hosts: all
    tasks:
     - name: "Execute shell command"
-      command: Ifconfig
-      register: Ifconfig_facts
+      command: ifconfig
+      register: ifconfig_facts
     - debug: var=config_facts
     - name: save output to a file
       copy: 

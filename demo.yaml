@@ -3,10 +3,10 @@
    hosts: all
    tasks:
     - name: "Execute shell command"
-      command: echo "ls"
-      register: ls
-    - debug: msg="{{ ls.stdout }}"
-    - debug: msg="{{ ls.stderr }}"
+      ansible.builtin.command: ls -ltr
+      register: myls
+    - debug: msg="{{ myls.stdout }}"
+    - debug: msg="{{ myls.stderr }}"
       
       
     - name: "Create a file if it does not exist"

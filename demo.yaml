@@ -10,9 +10,14 @@
      shell: |
        uptime > /tmp/latestfile 2>&1
        cat /tmp/latestfile
-       uname -a > /tmp/latestfile 2>&1
      register: uptime 
-     register: uname -a
    - debug: msg="{{ uptime.stdout }}"
-   - debug: msg="{{ uname -a.stdout }}"
+   
+   - name: System Uptime
+     shell: |
+       free > /tmp/latestfile 2>&1
+       cat /tmp/latestfile
+     register: free
+   - debug: msg="{{ free.stdout }}" 
+  
 
